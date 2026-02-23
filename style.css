@@ -1,0 +1,460 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap');
+
+/* ── CSS Variables ── */
+:root {
+  --bg:             #fafafa;
+  --surface:        #eebebe;
+  --surface-2:      #f3f3f3;
+
+  --pink:           #f9b8d4;
+  --pink-light:     #fde8f2;
+  --pink-dark:      #e87dac;
+
+  --lavender:       #c9b8f9;
+  --lavender-light: #ede8ff;
+  --lavender-dark:  #8b6fe8;
+
+  --mint:           #b8f0d8;
+  --mint-dark:      #3dbb85;
+
+  --peach:          #ffd6b0;
+  --peach-dark:     #e08040;
+
+  --text:           #020202;
+  --text-muted:     #7642f0;
+
+  --border:         #ead5ec;
+  --shadow:         0 2px 16px rgba(180, 140, 200, 0.13);
+  --shadow-hover:   0 6px 24px rgba(180, 140, 200, 0.24);
+
+  --radius:         14px;
+  --radius-sm:      8px;
+  --radius-lg:      20px;
+
+  --font-body:      'Nunito', sans-serif;
+  --font-display:   'Lora', serif;
+
+  --transition:     all 0.22s ease;
+}
+
+/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+/* ── Body ── */
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(circle at 8% 8%, #fde8f2 0%, transparent 38%),
+    radial-gradient(circle at 92% 85%, #ede8ff 0%, transparent 38%);
+  background-attachment: fixed;
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.65;
+  font-size: 15px;
+}
+
+/* ============================================
+   NAVIGATION
+   nav.php: <div style="display:flex; gap:10px; flex-wrap:wrap; margin-bottom:16px;">
+   We use :first-child since it's always the first element in body
+   ============================================ */
+
+body > div:first-child {
+  /* Override the inline style margin-bottom */
+  margin-bottom: 0 !important;
+
+  /* Nav styling */
+  background: var(--surface) !important;
+  border-bottom: 2px solid var(--border);
+  padding: 0 2.5rem !important;
+  gap: 0 !important;
+  flex-wrap: wrap !important;
+  align-items: stretch !important;
+  box-shadow: 0 2px 14px rgba(180, 140, 200, 0.12);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+}
+
+body > div:first-child a {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.88rem;
+  text-decoration: none;
+  color: var(--text-muted);
+  padding: 1rem 1.2rem;
+  border-bottom: 3px solid transparent;
+  letter-spacing: 0.02em;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+body > div:first-child a:hover {
+  color: var(--lavender-dark);
+  border-bottom-color: var(--lavender);
+  background: var(--lavender-light);
+}
+
+/* ── <hr> right after the nav div ── */
+body > hr:first-of-type {
+  border: none;
+  border-top: 0;   /* hide it — the nav already has a border-bottom */
+  margin: 0;
+}
+
+/* ============================================
+   PAGE CONTENT
+   Everything after the nav + hr is page content.
+   We wrap with max-width via direct child selectors.
+   ============================================ */
+
+body > h2,
+body > h3,
+body > p,
+body > ul,
+body > form {
+  max-width: 960px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
+
+/* Don't set display:block on ul — it needs display:grid from the ul rule below */
+body > h2    { display: block; margin-top: 2.5rem; }
+body > h3    { display: block; }
+body > p     { display: block; margin-top: 0.85rem; }
+body > form  { display: block; margin-top: 0.75rem; }
+body > ul    { margin-top: 1.25rem; }  /* display:grid comes from ul rule */
+
+/* Table needs its own wrapper treatment */
+body > table {
+  display: table;
+  max-width: 960px;
+  width: calc(100% - 5rem);
+  margin: 0.5rem auto 2rem auto;
+}
+
+/* ============================================
+   HEADINGS
+   ============================================ */
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+
+h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0;
+}
+
+h2 {
+  margin-bottom: 1.5rem;
+}
+
+/* ============================================
+   STAT CARDS — Dashboard <ul><li>
+   ============================================ */
+
+ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+}
+
+ul li {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.4rem 1.6rem;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+ul li:nth-child(1) { border-top: 4px solid var(--pink-dark); }
+ul li:nth-child(2) { border-top: 4px solid var(--lavender-dark); }
+ul li:nth-child(3) { border-top: 4px solid var(--mint-dark); }
+ul li:nth-child(4) { border-top: 4px solid var(--peach-dark); }
+
+ul li:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+ul li b {
+  display: block;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--text);
+  margin-top: 0.35rem;
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+}
+
+/* ============================================
+   LINKS & PARAGRAPHS
+   ============================================ */
+
+p {
+  color: var(--text-muted);
+  font-size: 0.93rem;
+}
+
+a {
+  color: var(--lavender-dark);
+  font-weight: 700;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+p a {
+  border-bottom: 1.5px solid var(--lavender);
+  padding-bottom: 1px;
+}
+
+p a:hover {
+  color: var(--pink-dark);
+  border-bottom-color: var(--pink);
+}
+
+/* "+ Add Client" pill button */
+p > a[href*="add"],
+p > a[href*="clients_add"] {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 0.4rem;
+  background: lightgreen !important;
+  border: 1.5px solid var(--pink) !important;
+  color: black !important;
+  border-radius: var(--radius-sm);
+  padding: 0.45rem 1.15rem !important;
+  font-size: 0.88rem;
+  font-weight: 700;
+  transition: var(--transition);
+  margin-bottom: 1rem;
+}
+
+p > a[href*="add"]:hover,
+p > a[href*="clients_add"]:hover {
+  background: lightgreen !important;
+  color: black !important;
+  border-color: transparent !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(232, 125, 172, 0.32);
+}
+
+/* ============================================
+   TABLE
+   ============================================ */
+
+table {
+  border-collapse: collapse;
+  background: var(--surface);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  border: 1.5px solid var(--border);
+}
+
+table thead {
+  background: linear-gradient(135deg, var(--lavender-light), var(--pink-light));
+}
+
+table th {
+  padding: 0.95rem 1.2rem;
+  text-align: left;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  border-bottom: 2px solid var(--border);
+}
+
+table td {
+  padding: 0.9rem 1.2rem;
+  font-size: 0.9rem;
+  color: var(--text);
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+
+table tbody tr:last-child td { border-bottom: none; }
+table tbody tr { transition: background 0.15s ease; }
+table tbody tr:hover { background: var(--lavender-light); }
+
+/* Edit button inside table */
+table td a {
+  color: var(--lavender-dark) !important;
+  font-weight: 700;
+  font-size: 0.82rem;
+  background: var(--lavender-light);
+  border: 1.5px solid var(--lavender) !important;
+  border-radius: var(--radius-sm);
+  padding: 0.3rem 0.85rem;
+  transition: var(--transition);
+  display: inline-block;
+}
+
+table td a:hover {
+  background: var(--lavender-dark) !important;
+  color: #fff !important;
+  border-color: var(--lavender-dark) !important;
+  transform: scale(1.05);
+}
+
+/* ============================================
+   FORMS  (Add / Edit Client)
+   ============================================ */
+
+form {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem 2.5rem;
+  box-shadow: var(--shadow);
+  max-width: 500px;
+  width: 100%;
+  margin-bottom: 2.5rem;
+}
+
+label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  margin-bottom: 0.45rem;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea,
+select {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: 0.93rem;
+  color: var(--text);
+  background: var(--surface-2);
+  transition: var(--transition);
+  outline: none;
+  display: block;
+  margin-bottom: 1.25rem;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--lavender-dark);
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(201, 184, 249, 0.28);
+}
+
+/* ── Buttons ── */
+button,
+button[type="submit"],
+input[type="submit"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.7rem 2rem;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: var(--transition);
+  letter-spacing: 0.03em;
+  background: lightgreen !important;
+  color: black !important;
+  box-shadow: 0 3px 12px rgba(180, 140, 200, 0.32);
+  margin-top: 0.5rem;
+}
+
+button:hover,
+button[type="submit"]:hover,
+input[type="submit"]:hover {
+  background: linear-gradient(135deg, var(--lavender-dark), var(--pink-dark));
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(180, 140, 200, 0.38);
+}
+
+button:active,
+button[type="submit"]:active { transform: translateY(0); }
+
+/* ── Error message ── */
+.error,
+p[style*="color:red"],
+p[style*="color: red"] {
+  background: #fff0f5;
+  border: 1.5px solid var(--pink);
+  border-left: 4px solid var(--pink-dark);
+  color: var(--pink-dark) !important;
+  border-radius: var(--radius-sm);
+  padding: 0.65rem 1rem;
+  font-size: 0.88rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  max-width: 500px;
+}
+
+/* Hide the error box when it's empty */
+p[style*="color:red"]:empty,
+p[style*="color: red"]:empty {
+  display: none;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 700px) {
+  body > div:first-child {
+    padding: 0 1rem !important;
+  }
+
+  body > div:first-child a {
+    padding: 0.75rem 0.65rem;
+    font-size: 0.8rem;
+  }
+
+  body > h2, body > p, body > ul, body > form {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  body > table {
+    width: calc(100% - 2.5rem);
+  }
+
+  ul { grid-template-columns: 1fr 1fr; }
+
+  form { padding: 1.5rem; max-width: 100%; }
+
+  table { font-size: 0.83rem; }
+  table th, table td { padding: 0.7rem 0.8rem; }
+}
