@@ -11,7 +11,7 @@ $revenue = $revRow['s'];
 <!doctype html>
 <html>
 <head>
-  <link rel="stylesheet" href="/santi_assessment/style.css">
+  <link rel="stylesheet" href="/santi_assessment/style.css"> 
   <meta charset="utf-8">
   <title>Dashboard</title>
 </head>
