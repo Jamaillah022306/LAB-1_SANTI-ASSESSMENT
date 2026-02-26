@@ -1,5 +1,5 @@
 <?php
-include "../db.php";
+include "../config/db.php";
  
 $clients = mysqli_query($conn, "SELECT * FROM clients ORDER BY full_name ASC");
 $services = mysqli_query($conn, "SELECT * FROM services WHERE is_active=1 ORDER BY service_name ASC");

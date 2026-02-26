@@ -184,6 +184,10 @@ ul li {
   color: var(--text-muted);
   font-weight: 600;
   line-height: 1.4;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;   
 }
 
 ul li:nth-child(1) { border-top: 4px solid var(--pink-dark); }
@@ -197,13 +201,13 @@ ul li:hover {
 }
 
 ul li b {
-  display: block;
-  font-size: 2rem;
+  font-size: 1.4rem; 
   font-weight: 800;
   color: var(--text);
-  margin-top: 0.35rem;
   font-family: var(--font-display);
   letter-spacing: -0.02em;
+  margin-top: 0;
+  display: inline;
 }
 
 /* ============================================
@@ -405,6 +409,30 @@ input[type="submit"]:hover {
 
 button:active,
 button[type="submit"]:active { transform: translateY(0); }
+
+/* "+ Create Booking" pill button */
+p > a[href*="create"] {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 0.4rem;
+  background: lightgreen !important;
+  border: 1.5px solid var(--pink) !important;
+  color: black !important;
+  border-radius: var(--radius-sm);
+  padding: 0.45rem 1.15rem !important;
+  font-size: 0.88rem;
+  font-weight: 700;
+  transition: var(--transition);
+  margin-bottom: 1rem;
+}
+
+p > a[href*="create"]:hover {
+  background: lightgreen !important;
+  color: black !important;
+  border-color: transparent !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(232, 125, 172, 0.32);
+}
 
 /* ── Error message ── */
 .error,

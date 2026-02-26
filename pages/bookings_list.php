@@ -1,12 +1,12 @@
 <?php
-include "../db.php";
+include "../config/db.php";
  
 $sql = "
 SELECT b.*, c.full_name AS client_name, s.service_name
 FROM bookings b
 JOIN clients c ON b.client_id = c.client_id
 JOIN services s ON b.service_id = s.service_id
-ORDER BY b.booking_id DESC
+ORDER BY b.booking_id ASC
 ";
 $result = mysqli_query($conn, $sql);
 ?>

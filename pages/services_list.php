@@ -1,5 +1,5 @@
 <?php
-include "../db.php";
+include "../config/db.php";
 $result = mysqli_query($conn, "SELECT * FROM services ORDER BY service_id DESC");
 ?>
 <!doctype html>

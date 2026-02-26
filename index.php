@@ -1,5 +1,5 @@
 <?php
-include "db.php";
+include "config/db.php";
  
 $clients = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) AS c FROM clients"))['c'];
 $services = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) AS c FROM services"))['c'];
@@ -27,11 +27,7 @@ $revenue = $revRow['s'];
   <li>Total Revenue: <b>₱<?php echo number_format($revenue,2); ?></b></li>
 </ul>
  
-<p>
-  Quick links:
-  <a href="/santi_assessment/pages/clients_add.php">Add Client</a> |
-  <a href="/santi_assessment/pages/bookings_create.php">Create Booking</a>
-</p>
+
  
 </body>
 </html>
