@@ -6,5 +6,6 @@
   <a href="/santi_assessment/pages/bookings_list.php">Bookings</a>
   <a href="/santi_assessment/pages/tools_list_assign.php">Tools</a>
   <a href="/santi_assessment/pages/payments_list.php">Payments</a>
+  <a href="/santi_assessment/logout.php" style="margin-left:auto;">Logout</a>
 </div>
 <hr>
